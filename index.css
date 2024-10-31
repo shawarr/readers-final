@@ -207,7 +207,7 @@ img.fb{
     background-color: rgb(255, 255, 255) !important;
     box-shadow: 0 0 0.5em rgba(126, 126, 126, 0.8) !important;
     border-radius: 0.4em !important;
-    border-color:#343a40;
+    border-color:#343a409a;
     border-style: solid;
     margin:0.1em;
     border-width:0.25em;
@@ -860,4 +860,170 @@ footer {
 }
 .breadcrumb-current{
     font-weight: light;;
+}
+
+    
+.list-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start; /* Aligns items to the start */
+    gap: 1em; /* Adds even spacing between items */
+    padding: 4em;
+}
+
+.list-item {
+    flex: 1 1 calc(25% - 1em); /* 4 columns on large screens */
+    max-width: calc(25% - 1em); /* Limits each item’s max width */
+}
+
+
+/* For tablets and smaller screens (2 columns) */
+@media (max-width: 768px) {
+    .list-item {
+        flex: 1 1 calc(50% - 1em); /* 2 columns */
+        max-width: calc(50% - 1em);
+    }
+}
+
+/* For very small screens (1 column) */
+@media (max-width: 480px) {
+    .list-item {
+        flex: 1 1 calc(50% - 1em); /* 2 columns */
+        max-width: calc(50% - 1em);
+        
+    }
+  
+}
+
+
+.author-style{
+    text-align: center;
+}
+
+#list-title{
+    text-align:center;
+    margin-top:1.5em;
+}
+
+#list-title h2{
+    color:black;
+    margin:0;
+    
+}
+
+#list-title h2:hover{
+    color:red;
+    cursor:context-menu
+}
+
+#list-title hr{
+   width:50%;
+   margin:0 auto;
+   border:3px solid red;
+   border:none;
+   height:3px;
+   background-color:red;
+    border-radius:1em;
+
+
+}
+
+.results-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+    margin-left:2em;
+    margin-right:2em;
+    margin-top:2em;
+}
+.results-info span{
+    font-size:1rem;
+}
+
+.result-controls {
+    display: flex;
+    gap: 0.5rem;    
+    align-items: center;;
+}
+.result-controls label {
+    font-size:1rem !important;
+}
+
+
+
+/* Responsive styling for mobile screens */
+@media (max-width: 768px) {
+    .results-container {
+        flex-direction: column;
+        align-items: center; /* Center content */
+        text-align: center;  /* Center text */
+    }
+
+    .results-info {
+        margin-bottom: 0.5rem;
+        font-size: 0.9rem; /* Slightly smaller font for mobile */
+        width: 100%; /* Full width on mobile */
+    }
+
+    .result-controls {
+        width: 100%;       /* Full width on mobile */
+        margin-top: 1em;
+        gap: 0.5rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;    /* Center dropdowns */
+    }
+
+    .controls label, .controls select {
+        width: 90%;       /* Slightly reduced width to add padding from the edges */
+        max-width: 300px; /* Limit the max width for better readability */
+    }
+}
+
+#sort-select{
+    color:black;
+    padding:0.35em;
+    margin-right:1em;
+}
+
+#show-limit{
+    color:black;
+    padding:0.35em;
+}
+
+.result-controls select{
+    background-color: white;
+    border:1px solid #ccc;
+    border-radius:0.45em;
+    background-color:#f8f8f8;
+      transition: border-color 0.3s ease;
+    cursor: pointer;
+}
+
+.result-controls select:focus {
+    border-color: red;
+    outline: none;
+}
+
+.result-controls label{
+    font-size: 0.9em;
+    color:#666;
+}
+
+#local-authors .slick-dots , #top-carousel .slick-dots{
+    bottom: 10px;
+    display: block !important;
+    position: absolute;
+    width: 100%;
+    text-align: center;
+}
+
+#local-authors .slick-dots li button:before, #top-carousel .slick-dots li button:before{
+    font-size: 12px;
+    color: #666;
+}
+
+#local-authors .slick-dots li.slick-active button:before, #top-carousel .slick-dots li.slick-active button:before {
+    color: #333;
 }
