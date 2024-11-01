@@ -103,7 +103,7 @@ img.fb{
     height: 3em;
     background: #f5f5f5;
     border-radius: 1.625rem;
-    padding: 0 1.5rem;
+    padding: 0 4rem 0 1.5rem;
     font-size: 1.5rem;
     margin: 0 1rem;
     border: 2px solid red;
@@ -875,7 +875,7 @@ footer {
 .list-item {
     flex: 1 1 calc(50% - 1em); /* Two columns */
     max-width: calc(50% - 1em);
-    margin-bottom:1em;
+    margin-bottom:1.5em;
     display:flex;
     flex-direction: column;
     align-items: center;
@@ -935,9 +935,8 @@ footer {
 .image-container:hover img {
     transform: scale(1.1);
     box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.3);
-    margin-top:2em;
- 
-    
+    margin-top:1em;
+    transition: transform 0.1s ease-in-out;
 }
  
  .image-container {
@@ -1123,4 +1122,57 @@ footer {
    margin-right:0.7em;
    margin-left:0.3em;
    vertical-align: middle;
+}
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 1.5rem;
+    font-family: Arial, sans-serif;
+}
+
+.pagination .prev,
+.pagination .next,
+.pagination .page-numbers button {
+    background-color: #f5f5f5;
+    border: 1px solid #ccc;
+    color: #333;
+    padding: 0.5rem 1rem;
+    margin: 0 0.25rem;
+    cursor: pointer;
+    border-radius: 4px;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+}
+
+.pagination .prev:hover,
+.pagination .next:hover,
+.pagination .page-numbers button:hover {
+    background-color: #ddd;
+}
+
+.pagination .page-numbers button.active {
+    background-color: #007bff;
+    color: white;
+    border-color: #007bff;
+}
+
+.page-numbers button {
+    margin: 0 0.25rem;
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+.page-numbers button.active {
+    border-color:#1e1e1e !important;
+    background-color: #ff0707 !important;
+    color: #fff;
+    font-weight: bold;
+}
+
+.page-numbers button:disabled {
+    color: #ccc;
+    cursor: not-allowed;
 }

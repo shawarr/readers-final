@@ -299,9 +299,77 @@
         <h5 id="price" style="color:red; font-size:medium; font-weight:bold;">JOD 10</h5>
     </div>
     
-        <hr>
+        
 </div>
+<div class="pagination">
+    <div class="page-numbers"></div> 
+</div>
+<script>
+const itemsPerPage = 12; // Define how many items per page
+let currentPage = 1;
+let totalItems = 1034; // Set this to your actual total items count
+let totalPages = Math.ceil(totalItems / itemsPerPage);
+const maxVisibleButtons = 5; // Number of pagination buttons shown at once
 
+function generatePagination() {
+    const paginationContainer = document.querySelector('.page-numbers');
+    paginationContainer.innerHTML = ''; // Clear existing buttons
+
+    //  '<<' goes to first page
+    const firstButton = document.createElement('button');
+    firstButton.textContent = '<<';
+    firstButton.onclick = () => changePage(1);
+    firstButton.disabled = currentPage === 1;
+    paginationContainer.appendChild(firstButton);
+
+    // stArt and end page numbers for visible buttons
+    let startPage = Math.max(1, currentPage - Math.floor(maxVisibleButtons / 2));
+    let endPage = Math.min(totalPages, startPage + maxVisibleButtons - 1);
+
+    // adjust if we're near the end of the total pages
+    if (endPage - startPage < maxVisibleButtons - 1) {
+        startPage = Math.max(1, endPage - maxVisibleButtons + 1);
+    }
+
+    // Loop to create page number buttons within the visible range
+    for (let i = startPage; i <= endPage; i++) {
+        const pageButton = document.createElement('button');
+        pageButton.textContent = i;
+        pageButton.onclick = () => changePage(i);
+        if (i === currentPage) {
+            pageButton.classList.add('active'); // Highlight current page
+        }
+        paginationContainer.appendChild(pageButton);
+    }
+
+    // Create the '>>' button to go to the last page
+    const lastButton = document.createElement('button');
+    lastButton.textContent = '>>';
+    lastButton.onclick = () => changePage(totalPages);
+    lastButton.disabled = currentPage === totalPages;
+    paginationContainer.appendChild(lastButton);
+}
+
+function changePage(page) {
+    if (page === 'prev' && currentPage > 1) {
+        currentPage--;
+    } else if (page === 'next' && currentPage < totalPages) {
+        currentPage++;
+    } else if (typeof page === 'number') {
+        currentPage = page;
+    }
+
+    updatePagination();
+    loadProducts(currentPage); // Call your function to load products based on the page
+}
+
+function updatePagination() {
+    generatePagination(); // Refresh pagination buttons
+}
+
+// Initial call to generate pagination buttons
+generatePagination();
+</script>
     <footer class="bg-dark">
   <div class="footer-nav">
     <ul>
